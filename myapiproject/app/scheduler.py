@@ -5,14 +5,14 @@ from apscheduler.triggers.interval import IntervalTrigger
 from apscheduler.triggers.cron import CronTrigger
 from pytz import timezone
 import atexit
-from .tasks import run_every_10_minutes, run_daily_at_8am
+from .tasks import myCustomFunction, run_daily_at_8am
 
 def start():
     scheduler = BackgroundScheduler()
 
     # Interval Task: Every 10 minutes
     scheduler.add_job(
-        run_every_10_minutes,
+        myCustomFunction,
         trigger=IntervalTrigger(seconds=10),
         id='interval_10min',
         replace_existing=True

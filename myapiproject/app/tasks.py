@@ -1,6 +1,6 @@
 # myapp/tasks.py
 
-def run_every_10_minutes():
+def myCustomFunction():
     print("✅ Running task intervals")
 
 def run_daily_at_8am():

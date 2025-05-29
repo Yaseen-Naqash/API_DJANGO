@@ -25,11 +25,15 @@ class AssignmentAdmin(admin.ModelAdmin):
 @admin.register(Submission)
 class SubmissionAdmin(admin.ModelAdmin):
     list_display = ("assignment", "student", "submitted_at")
-    list_filter = ("assignment",)
+    list_filter = ("assignment",'assignment__course')
     search_fields = ("student__username",)
 
 @admin.register(Grade)
 class GradeAdmin(admin.ModelAdmin):
+    
+
+    readonly_fields = ('course',)
+
     list_display = ("submission", "score")
     search_fields = ("submission__student__username",)
 

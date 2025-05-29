@@ -61,6 +61,10 @@ class Grade(models.Model):
     score = models.DecimalField(max_digits=5, decimal_places=2)
     feedback = models.TextField(blank=True)
 
+    @property
+    def course(self):
+        return ((self.score / 100 ) * 70)
+
     def __str__(self):
         return f"{self.submission.student.username} - {self.score}"
     
